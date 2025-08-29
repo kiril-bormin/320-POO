@@ -4,23 +4,39 @@
     {
         static void Main(string[] args)
         {
-            int actualPos = 2;
-            
+                Snail mySnail = new Snail(1, "_@_ö");
+                mySnail.racing();
+        }
+    }
+    public class Snail
+    {
+        private int _actualPos;
+        private string _snailForm;
+
+        public Snail(int actualPos, string snailForm)
+        {
+            this._actualPos = actualPos;
+            this._snailForm = snailForm;
+        }
+
+        public void racing()
+        {
             Console.SetCursorPosition(0, 12);
             Console.CursorVisible = false;
             do
             {
-                Console.SetCursorPosition(actualPos, 12);
+                Console.SetCursorPosition(_actualPos, 12);
                 Console.WriteLine("_@_ö");
-                Console.SetCursorPosition(actualPos - 1, 12);
+                Console.SetCursorPosition(_actualPos - 1, 12);
                 Console.WriteLine(" ");
-                Console.SetCursorPosition(actualPos, 12);
-                actualPos ++;
+                Console.SetCursorPosition(_actualPos, 12);
+                _actualPos++;
                 Thread.Sleep(150);
-                
-            } while (actualPos < 30);
+
+            } while (_actualPos < 30);
 
             Console.WriteLine("____");
         }
     }
 }
+
