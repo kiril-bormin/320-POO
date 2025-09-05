@@ -22,6 +22,11 @@ namespace Parachutistes
         private int y = 5;
         public List<Para> parachutistes;
 
+        public Plane()
+        {
+            parachutistes = new List<Para>();
+        }
+
         public void update()
         {
             x++;

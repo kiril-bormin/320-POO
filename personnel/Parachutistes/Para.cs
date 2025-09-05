@@ -40,7 +40,7 @@ namespace Parachutistes
             this.name = name;
         }
 
-        internal void update()
+        public void update()
         {
             if (y > PARA_HEIGHT)
             {
