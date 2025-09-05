@@ -5,13 +5,21 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Parachutes
+namespace Parachutistes
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
+            List<Para> parachutistesInAir = new List<Para>();
+
             Plane plane = new Plane();
+
+            for (int i = 0; i < 8; i++)
+            {
+                plane.board(new Para("Bob " + i.ToString()));
+            }
+
             while (true)
             {
                 Console.CursorVisible = false;
@@ -27,94 +35,8 @@ namespace Parachutes
             }
         }
     }
-    static class Config
-    {
-        public const int SCREEN_HEIGHT = 40;
-        public const int SCREEN_WIDTH = 150;
-    }
-    class Plane
-    {
-        private string[] view =
-        {
-       @" _                         ",
-       @"| \                        ",
-       @"|  \       ______          ",
-       @"--- \_____/  |_|_\____  |  ",
-       @"  \_______ --------- __>-} ",
-       @"        \_____|_____/   |  "
-   };
-        private int x = 0;
-        private int y = 5;
 
-        public void update()
-        {
-            x++;
-        }
-        public void draw()
-        {
-            for (int i = 0; i < view.Length; i++)
-            {
-                Console.SetCursorPosition(x, y + i);
-                Console.Write(view[i]);
-            }
-        }
-    }
-    class Para
-    {
-        //Attributs
-        private const int PARA_HEIGHT = 6;
 
-        private string[] viewNoParachute =
-        {
-            @"     ",
-            @"     ",
-            @"     ",
-            @"  o  ",
-            @" /░\ ",
-            @" / \ ",
-        };
-        private string[] viewWithParachute =
-        {
-            @" ___ ",
-            @"/|||\",
-            @"\   /",
-            @" \o/ ",
-            @"  ░  ",
-            @" / \ ",
-        };
-
-        public string name;
-        public int x;
-        public int y;
-        public bool parachuteIsOpen;
-
-        public Para (string name)
-        {
-            this.name = name;
-        }
-
-        internal void update()
-        {
-            if(y > PARA_HEIGHT) 
-            {
-                if (y < 20)
-                {
-                    parachuteIsOpen = true;
-                }
-            }
-        }
-        public void draw()
-        {
-            string[] view = parachuteIsOpen ? viewWithParachute : viewNoParachute;
-            for (int i = 0; i < view.Length; i++)
-            {
-                Console.SetCursorPosition(x, Config.SCREEN_HEIGHT - this.y + i);
-                Console.Write(view[i]);
-            }
-            Console.SetCursorPosition(x, Config.SCREEN_HEIGHT - this.y - 1);
-            Console.Write(this.name);
-        }
-
-    }
+    
 
 }
