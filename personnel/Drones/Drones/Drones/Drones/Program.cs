@@ -24,8 +24,8 @@ namespace Drones
 
             List<Building> city = new List<Building>();
             Building building = new Building();
-            building.X = 150;
-            building.Y = 5;
+            building.X = 100;
+            building.Y = 100;
             city.Add(building);
 
             // Démarrage

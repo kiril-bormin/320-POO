@@ -8,7 +8,7 @@ namespace Drones
 
         public void Render(BufferedGraphics drawingSpace)
         {
-            drawingSpace.Graphics.DrawEllipse(buildingBrush, new Rectangle(X - 4, Y - 2, 8, 8));
+            drawingSpace.Graphics.DrawRectangle(buildingBrush, new Rectangle(X - 4, Y - 2, DEPTH, HEIGHT));
         }
     }
 }
