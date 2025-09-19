@@ -4,11 +4,13 @@ namespace Drones
 {
     public partial class Building
     {
-        private Pen buildingBrush = new(new SolidBrush(Color.Black), 3);
+        private bool _form;
 
-        public void Render(BufferedGraphics drawingSpace)
+        private Pen buildingBrush = new(new SolidBrush(Color.Black), 5);
+
+        public virtual void Render(BufferedGraphics drawingSpace)
         {
-            drawingSpace.Graphics.DrawRectangle(buildingBrush, new Rectangle(X - 4, Y - 2, DEPTH, HEIGHT));
+            drawingSpace.Graphics.DrawRectangle(buildingBrush, new Rectangle(X - 4, Y - 2, 70, 70));
         }
     }
 }

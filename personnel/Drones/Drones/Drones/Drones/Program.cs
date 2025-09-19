@@ -2,7 +2,7 @@ using Drones.Helpers;
 
 namespace Drones
 {
-    internal static class Program
+    public static class Program
     {
         /// <summary>
         ///  The main entry point for the application.
@@ -23,10 +23,15 @@ namespace Drones
             fleet.Add(drone);
 
             List<Building> city = new List<Building>();
-            Building building = new Building();
-            building.X = 100;
-            building.Y = 100;
-            city.Add(building);
+            Building factory1 = new Factory(500, 100, 5.95);
+            city.Add(factory1);
+            Building factory2 = new Factory(200, 500, 5.95);
+            city.Add(factory2);
+
+            Building store1 = new Store(100, 100, "Lundi: 8h-18h,\r\nMardi: 8h-18h,\r\nMercredi: 8h-18h,\r\nJeudi: 8h-18h,\r\nVendredi: 8h-18h,\r\nSamedi: 10h-16h,\r\nDimanche: Fermé");
+            city.Add(store1);
+            Building store2 = new Store(200, 200, "Lundi: 8h-18h,\r\nMardi: 8h-18h,\r\nMercredi: 8h-18h,\r\nJeudi: 8h-18h,\r\nVendredi: 8h-18h,\r\nSamedi: 10h-16h,\r\nDimanche: Fermé");
+            city.Add(store2);
 
             // Démarrage
             Application.Run(new AirSpace(fleet, city));
