@@ -1,4 +1,5 @@
 using Drones;
+using Drones.Model;
 
 namespace Drones
 {
@@ -37,6 +38,7 @@ namespace Drones
             {
                 throw new Exception("Message");
             }
+            Rectangle r2 = new Rectangle(30, 100, 150, 100);
         }
 
 

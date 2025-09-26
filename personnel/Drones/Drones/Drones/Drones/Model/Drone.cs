@@ -1,5 +1,6 @@
 ﻿using Drones.Helpers;
 using Drones.Model;
+using static Drones.Model.IExpellable;
 
 namespace Drones
 {
@@ -10,6 +11,13 @@ namespace Drones
         private string _name;                           // Un nom
         private int _x;                              // Position en X depuis la gauche de l'espace aérien
         private int _y;                               // Position en Y depuis le haut de l'espace aérien
+        private EvacuationState state;
+
+        public Drone(int x, int y)
+        {
+            _x = x;
+            _y = y;
+        }
 
         public string Name
         {
@@ -54,5 +62,20 @@ namespace Drones
             _charge--;                                  // Il a dépensé de l'énergie
         }
 
+        public bool Evacuate(Rectangle zone)
+        {
+            state = EvacuationState.Evacuating;
+            return true;
+        }
+
+        public void FreeFlight()
+        {
+            state = EvacuationState.Free;
+        }
+
+        public EvacuationState GetEvacuationState()
+        {
+            return state;
+        }
     }
 }
