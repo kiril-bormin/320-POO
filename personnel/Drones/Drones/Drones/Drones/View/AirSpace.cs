@@ -32,6 +32,11 @@ namespace Drones
             airspace = currentContext.Allocate(this.CreateGraphics(), this.DisplayRectangle);
             this.fleet = fleet;
             this.city = city;
+
+            if (fleet.Count >= 10)
+            {
+                throw new Exception("Message");
+            }
         }
 
 
@@ -44,6 +49,7 @@ namespace Drones
             foreach (Drone drone in fleet)
             {
                 drone.Render(airspace);
+
             }
             foreach (Building building in city)
             {

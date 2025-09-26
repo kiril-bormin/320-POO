@@ -14,13 +14,19 @@ namespace Drones
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
+            List<Drone> fleet = new List<Drone>();
+            for (int i = 0; i < 10; i++)
+            {
+                Drone drone = new Drone();
+                drone.X = 100;
+                drone.Y = 100;
+                drone.Name = "Joe";
+                fleet.Add(drone);
+            }
             // Création de la flotte de drones
-            List<Drone> fleet= new List<Drone>();
-            Drone drone = new Drone();
-            drone.X = 100;
-            drone.Y = 100;
-            drone.Name = "Joe";
-            fleet.Add(drone);
+
+
+
 
             List<Building> city = new List<Building>();
             Building factory1 = new Factory(500, 100, 5.95);
@@ -34,7 +40,16 @@ namespace Drones
             city.Add(store2);
 
             // Démarrage
-            Application.Run(new AirSpace(fleet, city));
+            
+            try
+            {
+                Application.Run(new AirSpace(fleet, city));
+            }
+            catch (Exception e)
+            {
+                Console.Write(e.Message);
+                
+            }
         }
     }
 }

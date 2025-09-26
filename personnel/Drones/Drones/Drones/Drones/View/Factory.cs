@@ -19,7 +19,7 @@ namespace Drones
         }
         public override void Render(BufferedGraphics drawingSpace)
         {
-            drawingSpace.Graphics.DrawRectangle(buildingBrush, new Rectangle(X - 4, Y - 2, 10, 70));
+            drawingSpace.Graphics.DrawRectangle(buildingBrush, new Rectangle(X - 4, Y - 2, 70, 70));
             drawingSpace.Graphics.DrawString("Consumation : " + _consumption.ToString(), TextHelpers.drawFont, TextHelpers.writingBrush, X - 5, Y - 25);
         }
     }
