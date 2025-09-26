@@ -15,11 +15,11 @@ namespace Drones
             ApplicationConfiguration.Initialize();
 
             List<Drone> fleet = new List<Drone>();
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 9; i++)
             {
                 Drone drone = new Drone();
-                drone.X = 100;
-                drone.Y = 100;
+                drone.X = RandomHelpers.random.Next(1, 1000);
+                drone.Y = RandomHelpers.random.Next(1, 1000);
                 drone.Name = "Joe";
                 fleet.Add(drone);
             }

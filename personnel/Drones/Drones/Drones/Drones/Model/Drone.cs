@@ -1,9 +1,10 @@
 ﻿using Drones.Helpers;
+using Drones.Model;
 
 namespace Drones
 {
     // Cette partie de la classe Drone définit ce qu'est un drone par un modèle numérique
-    public partial class Drone
+    public partial class Drone : IExpellable
     {
         private int _charge = 1000;                     // La charge actuelle de la batterie
         private string _name;                           // Un nom
