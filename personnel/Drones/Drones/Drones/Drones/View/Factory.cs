@@ -9,13 +9,15 @@ namespace Drones
 {
     public class Factory : Building
     {
+        private int _id;
         private double _consumption;
 
         private Pen buildingBrush = new(new SolidBrush(Color.Black), 5);
-        public Factory(int x, int y, double consumption) : base(x, y)
+        public Factory(int x, int y, double consumption, int id) : base(x, y)
         {
             Console.WriteLine("Factory constructor");
             _consumption = consumption;
+            _id = id;
         }
         public override void Render(BufferedGraphics drawingSpace)
         {
