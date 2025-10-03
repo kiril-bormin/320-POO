@@ -14,12 +14,12 @@ namespace Drones
         private Pen buildingBrush = new(new SolidBrush(Color.Black), 5);
         public Store(int x, int y, string openinghours) : base(x, y)
         {
-            Console.WriteLine("Factory constructor");
+            Console.WriteLine("Store constructor");
             _OpeningHours = openinghours;
         }
         public override void Render(BufferedGraphics drawingSpace)
         {
-            drawingSpace.Graphics.DrawRectangle(buildingBrush, new Rectangle(X - 4, Y - 2, 70, 70));
+            drawingSpace.Graphics.DrawEllipse(buildingBrush, new (X - 4, Y - 2, 70, 70));
             drawingSpace.Graphics.DrawString("Consumation : " + _OpeningHours.ToString(), TextHelpers.drawFont, TextHelpers.writingBrush, X - 5, Y - 25);
         }
     }
