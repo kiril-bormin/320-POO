@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -43,17 +44,26 @@ namespace Drones
                 _y = value;
             }
         }
-       /* public string Color
+
+        public virtual int Update()
         {
-            get
-            {
-                return _color;
-            }
-            set
-            {
-                _color = value;
-            }
-        }*/
+            return _x;
+        }
+        public virtual int Main()
+        {
+            return _x;
+        }
+        /* public string Color
+         {
+             get
+             {
+                 return _color;
+             }
+             set
+             {
+                 _color = value;
+             }
+         }*/
 
     }
 }

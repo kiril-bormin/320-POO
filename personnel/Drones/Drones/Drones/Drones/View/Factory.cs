@@ -1,9 +1,13 @@
 ﻿using Drones.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
+
 
 namespace Drones
 {
@@ -11,6 +15,8 @@ namespace Drones
     {
         private int _id;
         private double _consumption;
+        
+        Stopwatch stopWatch = new Stopwatch();
 
         private Pen buildingBrush = new(new SolidBrush(Color.Black), 5);
         public Factory(int x, int y, double consumption, int id) : base(x, y)
@@ -18,6 +24,12 @@ namespace Drones
             Console.WriteLine("Factory constructor");
             _consumption = consumption;
             _id = id;
+        }
+
+        public override int Update()
+        {
+            Console.WriteLine("New Box");
+            return _id;
         }
         public override void Render(BufferedGraphics drawingSpace)
         {

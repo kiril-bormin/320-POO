@@ -1,5 +1,7 @@
 using Drones;
 using Drones.Model;
+using System.Diagnostics;
+using System.Timers;
 
 namespace Drones
 {
@@ -11,6 +13,9 @@ namespace Drones
     {
         public static readonly int WIDTH = 1200;        // Dimensions of the airspace
         public static readonly int HEIGHT = 600;
+        public Stopwatch stopWatch = new Stopwatch();
+        int counter;
+
 
 
         // La flotte est l'ensemble des drones qui évoluent dans notre espace aérien
@@ -33,6 +38,7 @@ namespace Drones
             airspace = currentContext.Allocate(this.CreateGraphics(), this.DisplayRectangle);
             this.fleet = fleet;
             this.city = city;
+            stopWatch.Start();
 
             if (fleet.Count >= 10)
             {
@@ -68,13 +74,24 @@ namespace Drones
             {
                 drone.Update(interval);
             }
+            foreach(Building building in city)
+            {
+                if (counter % 50 == 0)
+                {
+                    building.Update();
+                }
+            }
         }
-
         // Méthode appelée à chaque frame
         private void NewFrame(object sender, EventArgs e)
         {
+            // frames = 10/s
+            // frames = 540/m
+            counter++;
+
             this.Update(ticker.Interval);
             this.Render();
+            
         }
     }
 }
